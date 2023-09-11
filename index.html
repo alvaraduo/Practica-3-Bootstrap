@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <title>Practica 3 Diseñor de Formulario</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-2">
+                <h1 class="my-4"></h1>
+                <!-- grupacion de seleccion principal -->
+                <div class="nav flex-column nav-pills" aria-orientation="vertical">
+                    <a class="nav-link active" id="id_producto" href="#Registro-Producto"
+                        aria-selected="true">Producto</a>
+                    <a class="nav-link" id="id_compra" href="#Compras" aria-selected="false">Compra</a>
+                    <a class="nav-link" id="id_proveedor" href="#Proveedor" aria-selected="false">Proveedor</a>
+                    <a class="nav-link" id="id_venta" href="#Venta" aria-selected="false">Venta</a>
+                    <a class="nav-link" id="id_cliente" href="#Cliente" aria-selected="false">Cliente</a>
+                    <a class="nav-link" id="id_busqueda" href="#Búsqueda" aria-selected="false">Búsqueda</a>
+                    <a class="nav-link" id="id_reportes" href="#Reportes" aria-selected="false">Reportes</a>
+                </div>
+            </div>
+            <!-- Columna derecha -->
+            <div class="col-lg-10">
+                <div class="tab-content" id="v-pills-tabContent">
+                    <!-- Pestaña activa -->
+                    <div class="tab-pane fade show active" id="v-pills-item" role="tabpanel"
+                        aria-labelledby="v-pills-item-tab">
+                        <div class="card card-outline-secondary my-4">
+                            <div class="card-header">Detalles de Producto</div>
+                            <div class="card-body">
+                                <!-- manejo de pestñas -->
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab"
+                                            href="#Registro/productos">Producto</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#subir/imagen">Subir Imagen</a>
+                                    </li>
+                                </ul>
+                                <!-- Contenido de pestañsa-->
+                                <div class="tab-content">
+                                    <div id="itemDetailsTab" class="container-fluid tab-pane active">
+                                        <br>
+                                        <div id="itemDetailsMessage"></div>
+                                        <form>
+                                            <form>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-3" style="display:inline-block">
+                                                        <label for="itemDetailsItemNumber">N Producto<span
+                                                                class="requiredIcon">*</span></label>
+                                                        <input type="text" class="form-control"
+                                                            name="itemDetailsItemNumber" id="itemDetailsItemNumber"
+                                                            autocomplete="off">
+                                                        <div id="itemDetailsItemNumberSuggestionsDiv"
+                                                            class="customListDivWidth"></div>
+                                                    </div>
+                                                    <!-- id procudto -->
+                                                    <div class="form-group col-md-3" style="display:inline-block">
+                                                        <label for="itemDetailsProductID">ID Producto</label>
+                                                        <input class="form-control invTooltip" type="number" readonly
+                                                            id="itemDetailsProductID" name="itemDetailsProductID"
+                                                            title="Este ID de producto será generado automáticamente">
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </form>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6" style="display:inline-block">
+                                                <label for="itemDetailsItemName">Nombre de Producto<span
+                                                        class="requiredIcon">*</span></label>
+                                                <input type="text" class="form-control" name="itemDetailsItemName"
+                                                    id="itemDetailsItemName" autocomplete="off">
+                                                <div id="itemDetailsItemNameSuggestionsDiv" class="customListDivWidth">
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-2" style="display:inline-block">
+                                                <label for="itemDetailsStatus">Estado</label>
+                                                <!-- select stados-->
+                                                <select id="itemDetailsStatus" name="itemDetailsStatus"
+                                                    class="form-control chosenSelect">
+                                                    <option value="Active">Activo</option>
+                                                    <option value="Disabled">Inactivo</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <div class="form-row">
+                                            <div class="form-group col-md-6" style="display:inline-block">
+                                                <!-- Área de texto para la descripción -->
+                                                <textarea rows="4" class="form-control" placeholder="Descripción"
+                                                    name="itemDetailsDescription"
+                                                    id="itemDetailsDescription"></textarea>
+                                            </div>
+                                        </div>
+                                        <form>
+                                            <!-- Laabel y inputs para descuento, cantidad, precio, stcok -->
+                                            <div class="form-row">
+                                                <div class="form-group col-md-3" style="display:inline-block">
+                                                    <label for="itemDetailsDiscount">Descuento %</label>
+                                                    <input type="text" class="form-control" value="0"
+                                                        name="itemDetailsDiscount" id="itemDetailsDiscount">
+                                                </div>
+                                                <div class="form-group col-md-3 custom-field"
+                                                    style="display:inline-block">
+                                                    <label for="itemDetailsQuantity">Cantidad<span
+                                                            class="requiredIcon">*</span></label>
+                                                    <input type="number" class="form-control" value="0"
+                                                        name="itemDetailsQuantity" id="itemDetailsQuantity">
+                                                </div>
+                                                <div class="form-group col-md-3 custom-field"
+                                                    style="display:inline-block">
+                                                    <label for="itemDetailsUnitPrice">Precio Unitario<span
+                                                            class="requiredIcon">*</span></label>
+                                                    <input type="text" class="form-control" value="0"
+                                                        name="itemDetailsUnitPrice" id="itemDetailsUnitPrice">
+                                                </div>
+                                                <div class="form-group col-md-2.99 custom-field"
+                                                    style="display:inline-block">
+                                                    <label for="itemDetailsTotalStock">Stock Total</label>
+                                                    <input type="text" class="form-control" name="itemDetailsTotalStock"
+                                                        id="itemDetailsTotalStock">
+                                                </div>
+                                            </div>
+                                        </form>
+                                        <br>
+                                        <form>
+                                            <!-- Botones actualizar, eliminar, añadri, limpiar prodccutos -->
+                                            <button type="button" id="addProd" class="btn btn-success">Agregar
+                                                Producto</button>
+                                            <button type="button" id="updateProd"
+                                                class="btn btn-primary">Actualizar</button>
+                                            <button type="button" id="deleteProd" class="btn btn-danger">Borrar</button>
+                                            <button type="reset" class="btn" id="Clear">Limpiar</button>
+                                        </form>
+                                    </div>
+</body>
+
+</html>
